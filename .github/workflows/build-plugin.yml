@@ -23,8 +23,10 @@ jobs:
         run: |
           dify-plugin-cli build
 
-      - name: Upload built plugin
+          - name: Upload built plugin
         uses: actions/upload-artifact@v3
         with:
           name: dify-plugin
-          path: dist/*.difypkg
+          path: |
+            dist
+
