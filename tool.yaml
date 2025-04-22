@@ -1,0 +1,43 @@
+
+credentials_for_provider:
+  api_key:
+    label:
+      en_US: ElevenLabs API Key
+    placeholder:
+      en_US: Enter your ElevenLabs API key
+    required: true
+    type: secret-input
+  voice_id:
+    label:
+      en_US: Voice ID
+    placeholder:
+      en_US: e.g. Rachel, Bella, or a custom voice ID
+    required: true
+    type: text-input
+
+extra:
+  python:
+    source: tool.py
+
+identity:
+  name: tool
+  author: your_name
+  label:
+    en_US: ElevenLabs TTS
+  description:
+    en_US: Convert text to speech using ElevenLabs API
+
+parameters:
+  - name: text
+    type: text
+    required: true
+    label:
+      en_US: Text to convert
+    placeholder:
+      en_US: Enter the podcast script text
+
+outputs:
+  - name: audio
+    type: file
+    label:
+      en_US: Generated audio
