@@ -24,4 +24,4 @@ jobs:
           dify-plugin-cli build
 
       - name: Upload built plugin
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
