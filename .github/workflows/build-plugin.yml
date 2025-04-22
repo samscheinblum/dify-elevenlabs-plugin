@@ -1,4 +1,4 @@
-name: Build Dify Plugin
+name: Build and Upload Dify Plugin
 
 on:
   workflow_dispatch:
@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for uploading to releases
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,5 +25,8 @@ jobs:
         run: |
           dify-plugin-cli build
 
-      - name: Upload built plugin
-        uses: actions/upload-artifact@v2
+      - name: Upload to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload v1.0.0 dist/*.difypkg --clobber
